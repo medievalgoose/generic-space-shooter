@@ -12,11 +12,15 @@ public class Player : KinematicBody2D
 
     public bool canShoot = true;
     public bool canMove = true;
+    public Area2D hurtbox;
 
     public override void _Ready()
     {
         Timer timer = (Timer) GetNode("Timer");
         timer.Connect("timeout", this, nameof(OnTimerTimeout));
+
+        hurtbox = GetNode<Area2D>("Hurtbox");
+        hurtbox.Connect("area_entered", this, nameof(OnHurtboxEntered));
     }
 
     public override void _PhysicsProcess(float delta)
@@ -75,5 +79,24 @@ public class Player : KinematicBody2D
     public void OnTimerTimeout()
     {
         canShoot = true;
+    }
+
+    public async void OnHurtboxEntered(object body)
+    {
+        var mainNode = GetTree().Root.GetNodeOrNull<Main>("Node2D");
+        mainNode.DisableEnemyMovement();
+        
+        canMove = false;
+
+        var tween = CreateTween();
+        tween.TweenProperty(this, "scale", new Vector2(1.25f, 1.25f), 0.25f).SetTrans(Tween.TransitionType.Quad);
+        tween.Parallel().TweenProperty(this, "modulate", new Color("#FF0000"), 0.25f);
+        tween.TweenProperty(this, "scale", new Vector2(0f, 0f), 0.25f).SetTrans(Tween.TransitionType.Quad);
+
+        await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
+
+        QueueFree();
+
+        GetTree().ChangeScene("EndScreen.tscn");
     }
 }

@@ -43,28 +43,6 @@ public class Enemy : KinematicBody2D
 			
 			Visible = false;
 		} 
-		else if (body.GetType() == new Player().GetType() && canMove)
-		{
-			var mainNode = GetTree().Root.GetNodeOrNull<Main>("Node2D");
-			mainNode.DisableEnemyMovement();
-			
-			// Alternative way to call a method from another node.
-			// mainNode?.Call("DisableEnemyMovement");
-
-			Player player = (Player) body;
-			player.canMove = false;
-
-			var tween = CreateTween();
-			tween.TweenProperty(body, "scale", new Vector2(1.25f, 1.25f), 0.25f).SetTrans(Tween.TransitionType.Quad);
-			tween.Parallel().TweenProperty(body, "modulate", new Color("#FF0000"), 0.25f);
-			tween.TweenProperty(body, "scale", new Vector2(0f, 0f), 0.25f).SetTrans(Tween.TransitionType.Quad);
-
-			await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
-
-			body.QueueFree();
-
-			GetTree().ChangeScene("EndScreen.tscn");
-		}
 	}
 
 	public override void _PhysicsProcess(float delta)
