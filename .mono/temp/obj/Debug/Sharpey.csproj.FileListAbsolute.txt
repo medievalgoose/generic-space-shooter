@@ -1,0 +1,9 @@
+C:\Lab\Sharpey\.mono\temp\bin\Debug\Sharpey.dll
+C:\Lab\Sharpey\.mono\temp\bin\Debug\Sharpey.pdb
+C:\Lab\Sharpey\.mono\temp\obj\Debug\Sharpey.csproj.AssemblyReference.cache
+C:\Lab\Sharpey\.mono\temp\obj\Debug\Sharpey.GeneratedMSBuildEditorConfig.editorconfig
+C:\Lab\Sharpey\.mono\temp\obj\Debug\Sharpey.AssemblyInfoInputs.cache
+C:\Lab\Sharpey\.mono\temp\obj\Debug\Sharpey.AssemblyInfo.cs
+C:\Lab\Sharpey\.mono\temp\obj\Debug\Sharpey.csproj.CoreCompileInputs.cache
+C:\Lab\Sharpey\.mono\temp\obj\Debug\Sharpey.dll
+C:\Lab\Sharpey\.mono\temp\obj\Debug\Sharpey.pdb

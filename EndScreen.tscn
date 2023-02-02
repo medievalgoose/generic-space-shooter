@@ -1,0 +1,115 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Fonts/Baloo2-Medium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/button_normal.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/button_pressed.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/container.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/EndScreen.cs" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 85
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 96, 47 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+content_margin_left = 5.0
+content_margin_top = 5.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 96, 47 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 96, 47 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Container" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -162.5
+margin_top = -161.0
+margin_right = 162.5
+margin_bottom = 161.0
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Container"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -160.5
+margin_right = 160.5
+margin_bottom = 81.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "SCORE"
+align = 1
+valign = 1
+
+[node name="ScoreLabel" type="Label" parent="Container"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -161.5
+margin_top = -78.0
+margin_right = 162.5
+margin_bottom = 59.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "5"
+align = 1
+valign = 1
+
+[node name="RetryButton" type="Button" parent="Container"]
+margin_left = 42.5
+margin_top = 242.0
+margin_right = 138.5
+margin_bottom = 289.0
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0.294118, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.294118, 0.164706, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 5 )
+text = "RETRY"
+
+[node name="QuitButton" type="Button" parent="Container"]
+margin_left = 186.5
+margin_top = 242.0
+margin_right = 282.5
+margin_bottom = 289.0
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0.294118, 0.164706, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.294118, 0.164706, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 5 )
+text = "QUIT"
